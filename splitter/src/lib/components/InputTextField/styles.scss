@@ -1,0 +1,30 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  justify-content: space-between;
+}
+.input-container__label {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.1em;
+  color: #5d6b6c;
+}
+.input-container__form {
+  width: 100%;
+}
+#input-container__input {
+  background: #f3f8fb;
+  border-radius: 6px;
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2em;
+  line-height: 2.93em;
+  color: #9fb3b2;
+  width: 80%;
+  height: 100%;
+}

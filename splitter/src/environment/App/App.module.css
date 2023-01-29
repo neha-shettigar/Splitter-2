@@ -1,6 +1,25 @@
 .container {
   display: flex;
-  justify-content: center;
   margin: 0 auto;
-  width: 960px;
+  padding-top: 3.75em;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.container__input {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-between;
+}
+article {
+  display: flex;
+}
+.container__display {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.container__buttons {
+  display: flex;
+  height: 15%;
 }
