@@ -1,8 +1,19 @@
-.tip-container{
-    display: flex;
-    width: 30%;
+.tip-container {
+  display: flex;
+  width: 30%;
 }
-.tip-container__button{
-    color: chartreuse;
-    width: 70%;
+.tip-container__button {
+  color: white;
+  width: 70%;
+  background: #00474b;
+  border-radius: 10px;
+  font-family: 'Space Mono';
+font-style: normal;
+font-weight: 700;
+font-size: 2em;
+line-height: 47px;
+letter-spacing: 0.1em;
+}
+.tip-container__button:active {
+  background-color: #25c2ad;
 }

@@ -8,15 +8,16 @@ const TipButton = ({tip, handleTip, tipLabel}) => {
     <section className="tip-container">
       <button
         className="tip-container__button"
-        onClick={() => handleTip}
-        type="button">
+        onClick={() => handleTip(tip)}
+        type="button"
+        value={tip}>
         {tipLabel}
       </button>
     </section>
   );
 };
 TipButton.propTypes = {
-  tip: PropTypes.number.isRequired,
+  tip: PropTypes.string.isRequired,
   handleTip: PropTypes.func.isRequired,
   tipLabel: PropTypes.string.isRequired,
 };

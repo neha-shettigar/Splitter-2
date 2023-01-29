@@ -9,7 +9,7 @@ const InputTextField = ({
   image,
   errorMessage,
 }) => {
-  if (input) return input;
+  const a = 10;
   return (
     <section className="input-container">
       <label
@@ -19,22 +19,25 @@ const InputTextField = ({
       </label>
       <form className="input-container__form">
         <input
-          type="number"
-          value={input}
+          type="text"
           onChange={handleInput}
+          value={input}
           id="input-container__input"
         />
+        <img className="input-container__image" src={image} alt="" />
       </form>
-      <img alt="" />
     </section>
   );
 };
 InputTextField.propTypes = {
-  input: PropTypes.number.isRequired,
-  handleInput: PropTypes.func.isRequired,
+  input: PropTypes.string.isRequired,
+  handleInput: PropTypes.func,
   inputLabel: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   errorMessage: PropTypes.string.isRequired,
+};
+InputTextField.defaultProps = {
+  handleInput: event => {},
 };
 
 export default InputTextField;
