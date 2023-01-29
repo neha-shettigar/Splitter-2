@@ -21,7 +21,7 @@ const InputTextField = ({
         <input
           type="text"
           onChange={handleInput}
-          value={input}
+          // value={input}
           id="input-container__input"
         />
         <img className="input-container__image" src={image} alt="" />

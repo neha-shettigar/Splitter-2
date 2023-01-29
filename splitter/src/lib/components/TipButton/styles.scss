@@ -17,3 +17,14 @@ letter-spacing: 0.1em;
 .tip-container__button:active {
   background-color: #25c2ad;
 }
+
+
+@media (max-width:414px){
+    .tip-container{
+        display: flex;
+    }
+    .tip-container__button{
+        display: flex;
+        font-size: 1.5em;
+    }
+}

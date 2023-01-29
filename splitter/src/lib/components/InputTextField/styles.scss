@@ -39,3 +39,19 @@
   max-width: 2%;
   padding: 10px;
 }
+
+@media (max-width:414px){
+  .input-container{
+    display: flex;
+  }
+  .input-container__label{
+    font-size:0.8em;
+  }
+  .input-container__form{
+    width: 100%;
+    
+  }
+  #input-container__input{
+    width: 100%;
+  }
+}
