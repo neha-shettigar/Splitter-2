@@ -1,30 +1,61 @@
+// main container for the buttons
 .tip-container {
   display: flex;
   width: 30%;
+  height: 40%;
 }
+
+// singular button container
 .tip-container__button {
   color: white;
   width: 70%;
   background: #00474b;
   border-radius: 10px;
   font-family: 'Space Mono';
-font-style: normal;
-font-weight: 700;
-font-size: 2em;
-line-height: 47px;
-letter-spacing: 0.1em;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2em;
+  line-height: 47px;
+  letter-spacing: 0.1em;
 }
+
 .tip-container__button:active {
   background-color: #25c2ad;
 }
 
+// media query for mobile view
+@media (max-width: 414px) {
+  // main container
+  .tip-container {
+    display: flex;
+    width: 48%;
+    padding-bottom: 10px;
+  }
 
-@media (max-width:414px){
-    .tip-container{
-        display: flex;
-    }
-    .tip-container__button{
-        display: flex;
-        font-size: 1.5em;
-    }
+  // singular button container
+  .tip-container__button {
+    display: flex;
+    font-size: 1.5em;
+    width: 100%;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 414px) and (max-width: 768px) {
+  // main container for the buttons
+  .tip-container {
+    display: flex;
+    width: 30%;
+    height: 30%;
+  }
+
+  // singular button container
+  .tip-container__button {
+    width: 100%;
+    font-size: 1.2em;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 }

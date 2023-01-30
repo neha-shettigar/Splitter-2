@@ -2,23 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-const CustomTip = ({customTip, handleCustomTip}) => {
+// this component takes custom tip as user input via input field
+const CustomTip = ({value, onChangeValue}) => {
   const a = 10;
+
   return (
+    // main section
     <section className="custom-tip-container">
+      {/* input field for taking the custom tip from user */}
       <input
         type="text"
         className="custom-tip-container__input"
-        value={customTip}
-        onChange={handleCustomTip}
+        value={value}
         placeholder="custom"
+        onChange={onChangeValue}
       />
     </section>
   );
 };
+
+// propTypes for CustomTip component
 CustomTip.propTypes = {
-  customTip: PropTypes.string.isRequired,
-  handleCustomTip: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired,
+  onChangeValue: PropTypes.func.isRequired,
 };
 
 export default CustomTip;

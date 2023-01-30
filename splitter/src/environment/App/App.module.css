@@ -1,10 +1,13 @@
+/* main container that contains all the components*/
 .container {
   display: flex;
   margin: 0 auto;
   padding-top: 3.75em;
-  width: 100%;
-  justify-content: space-evenly;
+  width: 90%;
+  justify-content: center;
 }
+
+/* container for the components that take user inputs */
 .container__input {
   display: flex;
   flex-direction: column;
@@ -12,6 +15,8 @@
   justify-content: space-between;
   position: relative;
 }
+
+/* header for the tip buttons */
 .container__header {
   font-family: 'Space Mono';
   font-style: normal;
@@ -21,9 +26,8 @@
   letter-spacing: 0.1em;
   color: #5d6b6c;
 }
-article {
-  display: flex;
-}
+
+/* container that displays tip amount and total bill per person */
 .container__display {
   display: flex;
   flex-direction: column;
@@ -36,29 +40,85 @@ article {
   color: #5d6b6c;
   width: 40%;
 }
+
+/* container that displays tip buttons */
 .container__buttons {
   display: flex;
-  height: 15%;
+  height: 35%;
   padding-bottom: 10px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: space-around;
 }
 
-
-@media (max-width:414px){
-  .container{
+/* css for mobile view */
+@media (max-width: 414px) {
+  /* main container that contains all the components*/
+  .container {
     display: flex;
     padding: 0;
     flex-direction: column;
   }
-  .container__input{
+
+  /* container for the components that take user inputs */
+  .container__input {
     width: 80%;
     padding: 30px;
   }
-  .container__buttons{
+
+  /* container that displays tip buttons */
+  .container__buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* container that displays tip amount and total bill per person */
+  .container__display {
+    padding: 30px;
+    width: 85%;
+  }
+
+  /* header for the tip buttons */
+  .container__header {
+    font-size: 0.8em;
+  }
+}
+
+/* media query for tab view */
+@media (min-width: 414px) and (max-width: 768px) {
+  /* main container that contains all the components*/
+  .container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  /* container for the components that take user inputs */
+  .container__input {
+    display: flex;
+    width: 40%;
+    justify-content: space-evenly
+  }
+
+  /* container that displays tip buttons */
+  .container__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+    height: 30%;
+    padding: 0;
+  }
+
+  /* container that displays tip amount and total bill per person */
+  .container__display {
     display: flex;
     width: 50%;
   }
-  .container__display{
-    padding: 30px;
-    width: 85%;
+
+  /* header for the tip buttons */
+  .container__header {
+    font-size: 1em;
+    margin: 0;
   }
 }

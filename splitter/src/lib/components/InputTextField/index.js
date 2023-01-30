@@ -2,42 +2,47 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-const InputTextField = ({
-  input,
-  handleInput,
-  inputLabel,
-  image,
-  errorMessage,
-}) => {
+// this component takes user inputs in the form of numbers
+const InputTextField = ({value, onChangeValue, label, icon, errorMessage}) => {
   const a = 10;
+
   return (
+    // main container
     <section className="input-container">
+      {/* label for input field */}
       <label
         htmlFor="input-container__input"
         className="input-container__label">
-        {inputLabel}
+        {label}
       </label>
+      {/* error message when value is equal to zero */}
+      <span className="input-container__span">{errorMessage}</span>
       <form className="input-container__form">
+        {/* input field for user inputs */}
         <input
           type="text"
-          onChange={handleInput}
-          // value={input}
+          value={value}
           id="input-container__input"
+          placeholder="0"
+          onChange={onChangeValue}
         />
-        <img className="input-container__image" src={image} alt="" />
+        {/* icon for the input field */}
+        <img className="input-container__image" src={icon} alt="" />
       </form>
     </section>
   );
 };
+
 InputTextField.propTypes = {
-  input: PropTypes.string.isRequired,
-  handleInput: PropTypes.func,
-  inputLabel: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
   errorMessage: PropTypes.string.isRequired,
+  onChangeValue: PropTypes.func,
 };
+
 InputTextField.defaultProps = {
-  handleInput: event => {},
+  onChangeValue: event => {},
 };
 
 export default InputTextField;

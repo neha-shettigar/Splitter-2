@@ -1,16 +1,51 @@
+// main container
 .custom-tip-container {
   display: flex;
   width: 40%;
+  height: 40%;
 }
+
+// input field for taking custom tip from user
 .custom-tip-container__input {
   background: #f3f8fb;
   border-radius: 6px;
   font-family: 'Space Mono';
   font-style: normal;
   font-weight: 700;
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 2.93em;
   color: #9fb3b2;
   text-align: center;
   width: 50%;
+}
+
+// media query for mobile view
+@media (max-width: 414px) {
+  // main container
+  .custom-tip-container{
+    display: flex;
+    width: 48%;
+  }
+
+// input field for taking custom tip from user
+  .custom-tip-container__input{
+    font-size: 1em;
+    width: 100%;
+  }
+}
+
+// media query for tab view
+@media (min-width: 414px) and (max-width: 768px){
+  // main container
+.custom-tip-container {
+  display: flex;
+  width: 30%;
+  height: 30%;
+}
+
+// input field for taking custom tip from user
+.custom-tip-container__input {
+  font-size: 1em;
+  width: 100%;
+}
 }

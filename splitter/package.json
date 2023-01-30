@@ -1,7 +1,7 @@
 {
   "name": "splitter",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.7",
@@ -73,7 +73,7 @@
     "fix:style": "yarn lint:style --fix",
     "start:docs": "start-storybook -p 6006",
     "build:docs": "build-storybook",
-    "prepare": "node ./prepare.js && husky install"
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -95,5 +95,9 @@
   "style": "lib/default.css",
   "engines": {
     "node": ">=14"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   }
 }

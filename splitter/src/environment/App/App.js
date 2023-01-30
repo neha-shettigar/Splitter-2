@@ -1,57 +1,123 @@
-import React, {useState} from 'react';
+import React from 'react';
 import InputTextField from 'lib/components/InputTextField';
 import TipButton from 'lib/components/TipButton';
 import CustomTip from 'lib/components/CustomTip';
 import TipDisplay from 'lib/components/TipDisplay';
 import dollar from 'lib/components/InputTextField/dollar.svg';
+import man from 'lib/components/InputTextField/person.svg';
 import classes from './App.module.css';
 
 export const App = () => {
-  const [person, setPerson] = useState('a');
-  const [bill, setBill] = React.useState('');
-  const [tip, setTip] = React.useState('');
-  const [customTip, setCustomTip] = React.useState('');
+  // states for user inputs
+  const [person, setPerson] = React.useState();
+  const [bill, setBill] = React.useState();
+  const [tip, setTip] = React.useState();
+  const [customTip, setCustomTip] = React.useState();
+
+  // handle functions for the states
   const handlePerson = event => {
     setPerson(event.target.value);
   };
   const handleBill = event => setBill(event.target.value);
   const handleTip = tipValue => setTip(tipValue);
   const handleCustomTip = event => setCustomTip(event.target.value);
+  // check for error case and display error message
   const isPersonZero = person === 0;
-  const errorMessage = isPersonZero ? `Cannot be zero` : ``;
+  const errorMessage = isPersonZero ? 'Cannot be zero' : '';
   const isBillZero = bill === 0;
-  const errorMessageBill = isBillZero ? `Cannot be zero` : ``;
+  const errorMessageBill = isBillZero ? 'Cannot be zero' : '';
+
+  // to choose the tip value between buttons and custom tip input
+  const finalTipValue = () => {
+    if (!tip) {
+      return customTip;
+    }
+    return tip;
+  };
+
+  const tipAmount = 0.0;
+  const totalBill = 0.0;
+
+  // to compute tip per person
+  const computationsForTip = () => {
+    if (bill !== 0 && person !== 0) {
+      return (finalTipValue() / 100) * (bill / person);
+    }
+    return tipAmount;
+  };
+
+  // to compute bill amount per person
+  const computationsForBill = () => {
+    if (bill !== 0 && person !== 0) {
+      return computationsForTip() + bill / person;
+    }
+    return totalBill;
+  };
+
   return (
+    // main container of the UI
     <main className={classes.container}>
+      {/* container for components that take inputs  */}
       <aside className={classes.container__input}>
+        {/* input text field for taking bill amount */}
         <InputTextField
-          input={bill}
-          hanleInput={handleBill}
-          inputLabel="Bill"
-          image={dollar}
+          value={bill}
+          label="Bill"
+          icon={dollar}
           errorMessage={errorMessageBill}
+          onChangeValue={handleBill}
         />
+
         <h3 className={classes.container__header}>Selected %</h3>
+        {/* section for the tip buttons */}
         <section className={classes.container__buttons}>
-          <TipButton tip="5" onClick={() => handleTip(tip)} tipLabel="5%" />
-          <TipButton tip="10" onClick={() => handleTip('10')} tipLabel="10%" />
-          <TipButton tip="15" onClick={() => handleTip('15')} tipLabel="15%" />
+          {/* tip value 5% */}
+          <TipButton value={5} onClickButton={() => handleTip(5)} label="5%" />
+          {/* tip value 10% */}
+          <TipButton
+            value={10}
+            onClickButton={() => handleTip(10)}
+            label="10%"
+          />
+          {/* tip value 15% */}
+          <TipButton
+            value={15}
+            onClickButton={() => handleTip(15)}
+            label="15%"
+          />
+          {/* tip value 25% */}
+          <TipButton
+            value={25}
+            onClickButton={() => handleTip(25)}
+            label="25%"
+          />
+          {/* tip value 50% */}
+          <TipButton
+            value={50}
+            onClickButton={() => handleTip(50)}
+            label="50%"
+          />
+          {/* input field for custom tip */}
+          <CustomTip value={customTip} onChangeValue={handleCustomTip} />
         </section>
-        <section className={classes.container__buttons}>
-          <TipButton tip="25" onClick={() => handleTip('25')} tipLabel="25%" />
-          <TipButton tip="50" onClick={() => handleTip('50')} tipLabel="50%" />
-          <CustomTip customTip={customTip} handleCustomTip={handleCustomTip} />
-        </section>
+
+        {/* input field for taking the person count */}
         <InputTextField
-          input={person}
-          hanleInput={handlePerson}
-          inputLabel="Number of person"
-          image={dollar}
+          value={person}
+          label="Number of person"
+          icon={man}
           errorMessage={errorMessage}
+          onChangeValue={handlePerson}
         />
       </aside>
+
+      {/* container for displaying the tip amount and total bill amount per person */}
       <aside className={classes.container__display}>
-        <TipDisplay />
+        {/* display component */}
+        <TipDisplay
+          totalBill={computationsForBill()}
+          tipAmount={computationsForTip()}
+        />
       </aside>
     </main>
   );
