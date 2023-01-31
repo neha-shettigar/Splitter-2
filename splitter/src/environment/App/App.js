@@ -16,16 +16,31 @@ export const App = () => {
 
   // handle functions for the states
   const handlePerson = event => {
-    setPerson(event.target.value);
+    const regexForCustom = /^[0-9]+$/;
+    if (event.target.value === '' || regexForCustom.test(event.target.value)) {
+      setPerson(event.target.value);
+    }
   };
-  const handleBill = event => setBill(event.target.value);
+
+  const handleBill = event => {
+    const regexForCustom = /^[0-9]+$/;
+    if (event.target.value === '' || regexForCustom.test(event.target.value)) {
+      setBill(event.target.value);
+    }
+  };
   const handleTip = tipValue => setTip(tipValue);
-  const handleCustomTip = event => setCustomTip(event.target.value);
+  const handleCustomTip = event => {
+    const regexForCustom = /^[0-9]+$/;
+    if (event.target.value === '' || regexForCustom.test(event.target.value)) {
+      setCustomTip(event.target.value);
+    }
+  };
+
   // check for error case and display error message
-  const isPersonZero = person === 0;
-  const errorMessage = isPersonZero ? 'Cannot be zero' : '';
-  const isBillZero = bill === 0;
-  const errorMessageBill = isBillZero ? 'Cannot be zero' : '';
+  const isPersonZero = person === '0';
+  const errorMessage = () => (isPersonZero ? 'Cannot be zero' : null);
+  const isBillZero = bill === '0';
+  const errorMessageBill = () => (isBillZero ? 'Cannot be zero' : null);
 
   // to choose the tip value between buttons and custom tip input
   const finalTipValue = () => {
@@ -54,6 +69,14 @@ export const App = () => {
     return totalBill;
   };
 
+  // to disable reset button when no inputs are given
+  const disableResetBtn = () => {
+    if (!bill || !(tip || customTip) || !person) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     // main container of the UI
     <main className={classes.container}>
@@ -64,7 +87,7 @@ export const App = () => {
           value={bill}
           label="Bill"
           icon={dollar}
-          errorMessage={errorMessageBill}
+          errorMessage={errorMessageBill()}
           onChangeValue={handleBill}
         />
 
@@ -106,7 +129,7 @@ export const App = () => {
           value={person}
           label="Number of person"
           icon={man}
-          errorMessage={errorMessage}
+          errorMessage={errorMessage()}
           onChangeValue={handlePerson}
         />
       </aside>
@@ -115,8 +138,9 @@ export const App = () => {
       <aside className={classes.container__display}>
         {/* display component */}
         <TipDisplay
-          totalBill={computationsForBill()}
-          tipAmount={computationsForTip()}
+          totalBill={computationsForBill().toFixed(2)}
+          tipAmount={computationsForTip().toFixed(2)}
+          disableResetBtn={disableResetBtn()}
         />
       </aside>
     </main>

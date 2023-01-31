@@ -23,6 +23,10 @@
   background-color: #25c2ad;
 }
 
+.tip-container__button:focus {
+  background-color: #25c2ad;
+}
+
 // media query for mobile view
 @media (max-width: 414px) {
   // main container

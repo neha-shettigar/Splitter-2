@@ -8,6 +8,8 @@
 
 // label for the input field
 .input-container__label {
+  display: flex;
+  justify-content: space-between;
   font-family: 'Space Mono';
   font-style: normal;
   font-weight: 700;
@@ -19,15 +21,15 @@
 
 // to display error message
 .input-container__span {
-  font-size: 1.5em;
+  font-size: 1em;
   color: red;
+  padding-right: 100px;
 }
-
 .input-container__form {
+  display: flex;
   width: 100%;
   display: flex;
   align-items: center;
-  height: 45%;
 }
 
 //  input feild
@@ -50,7 +52,7 @@
 .input-container__image {
   position: absolute;
   z-index: 1;
-  max-width: 2%;
+  max-width: 5%;
   padding: 10px;
 }
 
@@ -79,6 +81,9 @@
   .input-container__image {
     max-width: 5%;
   }
+  .input-container__span {
+ padding: 0;
+}
 }
 
 // media query for tab view
@@ -96,8 +101,9 @@
 
   // to display error message
   .input-container__span {
-    font-size: 1.5em;
+    font-size: 0.8em;
     color: red;
+    padding: 0;
   }
 
   .input-container__form {

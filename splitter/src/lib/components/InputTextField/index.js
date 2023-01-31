@@ -14,9 +14,10 @@ const InputTextField = ({value, onChangeValue, label, icon, errorMessage}) => {
         htmlFor="input-container__input"
         className="input-container__label">
         {label}
+        <span className="input-container__span">{errorMessage}</span>
       </label>
       {/* error message when value is equal to zero */}
-      <span className="input-container__span">{errorMessage}</span>
+
       <form className="input-container__form">
         {/* input field for user inputs */}
         <input
