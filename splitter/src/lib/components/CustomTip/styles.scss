@@ -20,32 +20,32 @@
 }
 
 // media query for mobile view
-@media (max-width: 414px) {
+@media (max-width: 420px) {
   // main container
-  .custom-tip-container{
+  .custom-tip-container {
     display: flex;
     width: 48%;
   }
 
-// input field for taking custom tip from user
-  .custom-tip-container__input{
+  // input field for taking custom tip from user
+  .custom-tip-container__input {
     font-size: 1em;
     width: 100%;
   }
 }
 
 // media query for tab view
-@media (min-width: 414px) and (max-width: 768px){
+@media (min-width: 420px) and (max-width: 768px) {
   // main container
-.custom-tip-container {
-  display: flex;
-  width: 30%;
-  height: 30%;
-}
+  .custom-tip-container {
+    display: flex;
+    width: 30%;
+    height: 30%;
+  }
 
-// input field for taking custom tip from user
-.custom-tip-container__input {
-  font-size: 1em;
-  width: 100%;
-}
+  // input field for taking custom tip from user
+  .custom-tip-container__input {
+    font-size: 1em;
+    width: 100%;
+  }
 }

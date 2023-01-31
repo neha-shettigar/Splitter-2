@@ -97,7 +97,7 @@
 }
 
 // media query for mobile view
-@media (max-width: 414px) {
+@media (max-width: 420px) {
   .tip-display__header,
   .tip-display__unit {
     font-size: 0.75em;
@@ -115,7 +115,7 @@
   }
 }
 
-@media (min-width: 414px) and (max-width: 768px) {
+@media (min-width: 420px) and (max-width: 768px) {
   // main container
   .tip-display-container {
     display: flex;

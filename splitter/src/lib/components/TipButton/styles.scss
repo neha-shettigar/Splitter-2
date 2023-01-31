@@ -28,7 +28,7 @@
 }
 
 // media query for mobile view
-@media (max-width: 414px) {
+@media (max-width: 420px) {
   // main container
   .tip-container {
     display: flex;
@@ -45,7 +45,7 @@
   }
 }
 
-@media (min-width: 414px) and (max-width: 768px) {
+@media (min-width: 420px) and (max-width: 768px) {
   // main container for the buttons
   .tip-container {
     display: flex;

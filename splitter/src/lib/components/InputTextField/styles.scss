@@ -57,7 +57,7 @@
 }
 
 // media query for mobile view
-@media (max-width: 414px) {
+@media (max-width: 420px) {
   //main input container
   .input-container {
     display: flex;
@@ -82,12 +82,12 @@
     max-width: 5%;
   }
   .input-container__span {
- padding: 0;
-}
+    padding: 0;
+  }
 }
 
 // media query for tab view
-@media (min-width: 414px) and (max-width: 768px) {
+@media (min-width: 420px) and (max-width: 768px) {
   //main input container
   .input-container {
     display: flex;
