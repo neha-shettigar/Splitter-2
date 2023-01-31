@@ -39,3 +39,6 @@ yarn start
 ## Contributors
 
 @morewings, @sky0matic
+
+## Deplyoment status
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c91dae93-f069-4a68-a787-a95a53260456/deploy-status)](https://app.netlify.com/sites/tipsplitter-app/deploys)
