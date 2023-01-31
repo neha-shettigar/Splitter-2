@@ -23,7 +23,7 @@ const InputTextField = ({value, onChangeValue, label, icon, errorMessage}) => {
         <input
           type="number"
           value={value}
-          id="input-container__input"
+          className="input-container__input"
           placeholder="0"
           onChange={onChangeValue}
         />

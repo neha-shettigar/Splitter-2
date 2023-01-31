@@ -33,7 +33,7 @@
 }
 
 //  input feild
-#input-container__input {
+.input-container__input {
   background: #f3f8fb;
   border-radius: 6px;
   font-family: 'Space Mono';
@@ -54,6 +54,12 @@
   z-index: 1;
   max-width: 5%;
   padding: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 // media query for mobile view
