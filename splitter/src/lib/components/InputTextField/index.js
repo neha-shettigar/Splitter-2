@@ -21,7 +21,7 @@ const InputTextField = ({value, onChangeValue, label, icon, errorMessage}) => {
       <form className="input-container__form">
         {/* input field for user inputs */}
         <input
-          type="text"
+          type="number"
           value={value}
           id="input-container__input"
           placeholder="0"

@@ -20,7 +20,7 @@
 }
 
 // media query for mobile view
-@media (max-width: 414px) {
+@media (max-width: 420px) {
   // main container
   .custom-tip-container{
     display: flex;
@@ -35,7 +35,7 @@
 }
 
 // media query for tab view
-@media (min-width: 414px) and (max-width: 768px){
+@media (min-width: 420px) and (max-width: 768px){
   // main container
 .custom-tip-container {
   display: flex;
