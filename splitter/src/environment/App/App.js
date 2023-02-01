@@ -16,23 +16,26 @@ export const App = () => {
 
   // handle functions for the states
   const handlePerson = event => {
-    const regexForPerson = /^[0-9]+$/;
-    if (event.target.value === '' || regexForPerson.test(event.target.value)) {
-      setPerson(event.target.value);
+    const personInput = event.target.value;
+    const regexForPerson = /^\d{1,3}$/;
+    if (personInput === '' || regexForPerson.test(personInput)) {
+      setPerson(personInput);
     }
   };
 
   const handleBill = event => {
-    const regexForBill = /^[0-9]+$/;
-    if (event.target.value === '' || regexForBill.test(event.target.value)) {
-      setBill(event.target.value);
+    const billInput = event.target.value;
+    const regexForBill = /^\d{1,6}$/;
+    if (billInput === '' || regexForBill.test(billInput)) {
+      setBill(billInput);
     }
   };
   const handleTip = tipValue => setTip(tipValue);
   const handleCustomTip = event => {
-    const regexForCustom = /^[0-9]+$/;
-    if (event.target.value === '' || regexForCustom.test(event.target.value)) {
-      setCustomTip(event.target.value);
+    const customTipInput = event.target.value;
+    const regexForBill = /^\d{1,2}$/;
+    if (customTipInput === '' || regexForBill.test(customTipInput)) {
+      setCustomTip(customTipInput);
     }
   };
 
