@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 /* main container that contains all the components*/
 .container {
   display: flex;
@@ -62,8 +65,8 @@
 
   /* container for the components that take user inputs */
   .container__input {
-    width: 80%;
-    padding: 30px;
+    width: 100%;
+    
   }
 
   /* container that displays tip buttons */
@@ -75,8 +78,8 @@
 
   /* container that displays tip amount and total bill per person */
   .container__display {
-    padding: 30px;
-    width: 85%;
+    padding-top: 30px;
+    width: 100%;
   }
 
   /* header for the tip buttons */
