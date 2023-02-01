@@ -16,15 +16,15 @@ export const App = () => {
 
   // handle functions for the states
   const handlePerson = event => {
-    const regexForCustom = /^[0-9]+$/;
-    if (event.target.value === '' || regexForCustom.test(event.target.value)) {
+    const regexForPerson = /^[0-9]+$/;
+    if (event.target.value === '' || regexForPerson.test(event.target.value)) {
       setPerson(event.target.value);
     }
   };
 
   const handleBill = event => {
-    const regexForCustom = /^[0-9]+$/;
-    if (event.target.value === '' || regexForCustom.test(event.target.value)) {
+    const regexForBill = /^[0-9]+$/;
+    if (event.target.value === '' || regexForBill.test(event.target.value)) {
       setBill(event.target.value);
     }
   };
@@ -53,10 +53,16 @@ export const App = () => {
   const tipAmount = 0.0;
   const totalBill = 0.0;
 
+  const billPerPerson = () => {
+    if (person !== '0') {
+      return bill / person;
+    }
+    return 0;
+  };
   // to compute tip per person
   const computationsForTip = () => {
     if (bill !== 0 && person !== 0) {
-      return (finalTipValue() / 100) * (bill / person);
+      return (finalTipValue() / 100) * billPerPerson();
     }
     return tipAmount;
   };
@@ -64,7 +70,7 @@ export const App = () => {
   // to compute bill amount per person
   const computationsForBill = () => {
     if (bill !== 0 && person !== 0) {
-      return computationsForTip() + bill / person;
+      return computationsForTip() + billPerPerson();
     }
     return totalBill;
   };

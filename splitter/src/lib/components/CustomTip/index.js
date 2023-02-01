@@ -15,6 +15,7 @@ const CustomTip = ({value, onChangeValue}) => {
         className="custom-tip-container__input"
         value={value}
         placeholder="custom"
+        maxLength="2"
         onChange={onChangeValue}
       />
     </section>

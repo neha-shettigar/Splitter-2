@@ -25,6 +25,7 @@ const InputTextField = ({value, onChangeValue, label, icon, errorMessage}) => {
           value={value}
           className="input-container__input"
           placeholder="0"
+          // disabled={value === '0'}
           onChange={onChangeValue}
         />
         {/* icon for the input field */}
