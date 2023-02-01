@@ -86,7 +86,7 @@
 // container for reset button
 .tip-display__reset {
   margin: 0;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
   align-self: center;
   top: 75%;
   width: 90%;
@@ -113,6 +113,10 @@
   }
   .tip-display__amt {
     font-size: 1.2em;
+  }
+  // container for reset button
+  .tip-display__reset {
+    padding-bottom: 20px;
   }
 }
 
