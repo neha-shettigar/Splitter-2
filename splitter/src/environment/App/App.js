@@ -37,7 +37,7 @@ export const App = () => {
     if (customTipInput === '' || regexForBill.test(customTipInput)) {
       setCustomTip(customTipInput);
     }
-  };
+  }; 
 
   // check for error case and display error message
   const isPersonZero = person === '0';
@@ -85,7 +85,7 @@ export const App = () => {
     }
     return false;
   };
-
+  
   return (
     // main container of the UI
     <main className={classes.container}>

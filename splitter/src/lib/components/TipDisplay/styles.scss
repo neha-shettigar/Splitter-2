@@ -4,136 +4,16 @@
   background: #00474b;
   border-radius: 16px;
   flex-direction: column;
-}
-
-//  displays tip amount and total bill
-.tip-display__display {
-  display: flex;
-  padding: 40px 40px 150px 40px;
-  flex-direction: column;
-}
-
-//  a row in the display
-.tip-display__row {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 0px 60px;
-  align-items: center;
-  text-align: left;
-  flex-wrap: wrap;
-}
-
-// captions for the row
-.tip-display__caption {
-  display: grid;
-  justify-items: start;
-}
-
-// to display 'tip amount' and 'total bill as heading'
-.tip-display__header {
-  font-family: 'Space Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 30px;
-  letter-spacing: 0.1em;
-  color: #feffff;
-  margin: 0;
-}
-
-// unit fdr representing the amounts
-.tip-display__unit {
-  font-family: 'Space Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 30px;
-  letter-spacing: 0.1em;
-  color: #9fb3b2;
-  margin: 0;
-}
-
-// display amounts in numericals
-.tip-display__amt {
-  font-family: 'Space Mono';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 71px;
-  text-align: right;
-  color: #2cc0ad;
-  margin: 0;
-}
-
-// reset button
-.tip-display__button {
-  font-size: 1rem;
-  background: #25c2ad;
-  border-radius: 7px;
-  border: none;
-  align-items: center;
-  font-family: 'Space Mono';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 36px;
-  letter-spacing: 0.1em;
-  color: #00474b;
-  width: 100%;
-  padding: 10px;
-}
-
-// container for reset button
-.tip-display__reset {
-  margin: 0;
-  padding-bottom: 50px;
-  align-self: center;
-  top: 75%;
-  width: 90%;
-}
-
-.tip-display__button:focus {
-  outline: none;
-  background: #0d686d;
-}
-
-// media query for mobile view
-@media (max-width: 420px) {
-  .tip-display__header,
-  .tip-display__unit {
-    font-size: 0.75em;
-  }
-  .tip-display__display {
-    display: flex;
-    padding: 40px 20px 40px 20px;
-    flex-direction: column;
-  }
-  .tip-display__row {
-    padding-bottom: 30px;
-  }
-  .tip-display__amt {
-    font-size: 1.2em;
-  }
-  // container for reset button
-  .tip-display__reset {
-    padding-bottom: 20px;
-  }
-}
-
-@media (min-width: 420px) and (max-width: 768px) {
-  // main container
-  .tip-display-container {
-    display: flex;
-  }
 
   //  displays tip amount and total bill
-  .tip-display__display {
+  &__display {
     display: flex;
-    padding: 40px 30px;
+    padding: 40px 40px 150px 40px;
+    flex-direction: column;
   }
 
   //  a row in the display
-  .tip-display__row {
+  &__row {
     display: flex;
     justify-content: space-between;
     padding: 0px 0px 60px;
@@ -143,38 +23,159 @@
   }
 
   // captions for the row
-  .tip-display__caption {
+  &__caption {
     display: grid;
     justify-items: start;
   }
 
   // to display 'tip amount' and 'total bill as heading'
-  .tip-display__header {
-    font-size: 1em;
+  &__header {
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.1em;
+    color: #feffff;
+    margin: 0;
   }
 
   // unit fdr representing the amounts
-  .tip-display__unit {
-    font-size: 1em;
+  &__unit {
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.1em;
+    color: #9fb3b2;
+    margin: 0;
   }
 
   // display amounts in numericals
-  .tip-display__amt {
-    font-size: 2em;
+  &__amt {
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 71px;
+    text-align: right;
+    color: #2cc0ad;
+    margin: 0;
   }
 
   // reset button
-  .tip-display__button {
+  &__button {
     font-size: 1rem;
+    background: #25c2ad;
+    border-radius: 7px;
+    border: none;
+    align-items: center;
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0.1em;
+    color: #00474b;
     width: 100%;
+    padding: 10px;
   }
 
   // container for reset button
-  .tip-display__reset {
+  &__reset {
     margin: 0;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     align-self: center;
     top: 75%;
-    width: 80%;
+    width: 90%;
+  }
+  &__button:focus {
+    outline: none;
+    background: #0d686d;
+  }
+}
+
+// media query for mobile view
+@media (max-width: 420px) {
+  .tip-display-container {
+    &__header,
+    &__header__unit {
+      font-size: 0.75em;
+    }
+    &__display {
+      display: flex;
+      padding: 40px 20px 40px 20px;
+      flex-direction: column;
+    }
+    &__row {
+      padding-bottom: 30px;
+    }
+    &__amt {
+      font-size: 1.2em;
+    }
+    // container for reset button
+    &__reset {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+@media (min-width: 420px) and (max-width: 768px) {
+  // main container
+  .tip-display-container {
+    display: flex;
+
+    //  displays tip amount and total bill
+    &__display {
+      display: flex;
+      padding: 40px 30px;
+    }
+
+    //  a row in the display
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 0px 60px;
+      align-items: center;
+      text-align: left;
+      flex-wrap: wrap;
+    }
+
+    // captions for the row
+    &__caption {
+      display: grid;
+      justify-items: start;
+    }
+
+    // to display 'tip amount' and 'total bill as heading'
+    &__header {
+      font-size: 1em;
+    }
+
+    // unit fdr representing the amounts
+    &__unit {
+      font-size: 1em;
+    }
+
+    // display amounts in numericals
+    &__amt {
+      font-size: 2em;
+    }
+
+    // reset button
+    &__button {
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    // container for reset button
+    &__reset {
+      margin: 0;
+      padding-bottom: 30px;
+      align-self: center;
+      top: 75%;
+      width: 80%;
+    }
   }
 }
