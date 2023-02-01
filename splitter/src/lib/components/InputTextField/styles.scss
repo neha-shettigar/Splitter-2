@@ -50,16 +50,17 @@
   border: none;
   padding-right: 10px;
 }
-.input-container__input:active{
+.input-container__input:active {
   border: yellow solid 1px;
 }
 
 // input field icon
 .input-container__image {
-  position: absolute;
-  z-index: 1;
-  width: 5%;
   padding: 10px;
+  position: absolute;
+  /* width: 5%; */
+  margin-left: 10px;
+  z-index: 1;
 }
 
 input::-webkit-outer-spin-button,
