@@ -47,11 +47,13 @@
 /* container that displays tip buttons */
 .container__buttons {
   display: flex;
+  width: 80%;
   height: 35%;
   padding-bottom: 10px;
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: space-around;
+  justify-content: space-between;
 }
 
 /* css for mobile view */
@@ -59,14 +61,13 @@
   /* main container that contains all the components*/
   .container {
     display: flex;
-    padding: 0;
+    padding: 30px 10px 10px 10px;
     flex-direction: column;
   }
 
   /* container for the components that take user inputs */
   .container__input {
     width: 100%;
-    
   }
 
   /* container that displays tip buttons */
@@ -111,6 +112,7 @@
     align-content: space-around;
     height: 30%;
     padding: 0;
+    width: 100%;
   }
 
   /* container that displays tip amount and total bill per person */

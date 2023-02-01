@@ -14,7 +14,7 @@ const CustomTip = ({value, onChangeValue}) => {
         type="number"
         className="custom-tip-container__input"
         value={value}
-        placeholder="custom"
+        placeholder="Custom"
         maxLength="2"
         onChange={onChangeValue}
       />
