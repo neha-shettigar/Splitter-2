@@ -14,7 +14,7 @@
 .container__input {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
   justify-content: space-between;
   position: relative;
 }
@@ -41,7 +41,7 @@
   line-height: 30px;
   letter-spacing: 0.1em;
   color: #5d6b6c;
-  width: 40%;
+  width: 50%;
 }
 
 /* container that displays tip buttons */
@@ -61,7 +61,8 @@
   /* main container that contains all the components*/
   .container {
     display: flex;
-    padding: 30px 10px 10px 10px;
+    padding: 30px;
+    width: 100%;
     flex-direction: column;
   }
 
@@ -94,7 +95,7 @@
   /* main container that contains all the components*/
   .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   /* container for the components that take user inputs */
@@ -109,8 +110,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: space-around;
-    height: 30%;
+    align-content: space-between;
+    height: 20%;
     padding: 0;
     width: 100%;
   }

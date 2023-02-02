@@ -4,7 +4,13 @@ import './styles.scss';
 
 // this component displays the tip amount per person and also
 // total bill per person
-const TipDisplay = ({tipAmount, totalBill, disableResetBtn, show}) => {
+const TipDisplay = ({
+  tipAmount,
+  totalBill,
+  disableResetBtn,
+  show,
+  onClickButton,
+}) => {
   if (!show) return null;
 
   return (
@@ -42,7 +48,7 @@ const TipDisplay = ({tipAmount, totalBill, disableResetBtn, show}) => {
         <button
           className="tip-display-container__button"
           disabled={disableResetBtn}
-          onClick={() => window.location.reload()}
+          onClick={onClickButton}
           type="button">
           {' '}
           RESET{' '}
@@ -57,6 +63,7 @@ TipDisplay.propTypes = {
   totalBill: PropTypes.number.isRequired,
   show: PropTypes.bool.isRequired,
   disableResetBtn: PropTypes.bool.isRequired,
+  onClickButton: PropTypes.func.isRequired,
 };
 
 export default TipDisplay;

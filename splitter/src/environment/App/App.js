@@ -9,10 +9,12 @@ import classes from './App.module.css';
 
 export const App = () => {
   // states for user inputs
-  const [person, setPerson] = React.useState();
-  const [bill, setBill] = React.useState();
-  const [tip, setTip] = React.useState();
-  const [customTip, setCustomTip] = React.useState();
+  const [person, setPerson] = React.useState('');
+  const [bill, setBill] = React.useState('');
+  const [tip, setTip] = React.useState('');
+  const [customTip, setCustomTip] = React.useState('');
+  const [totalBill, setTotalBill] = React.useState(0);
+  const [tipAmount, setTipAmount] = React.useState(0);
 
   // handle functions for the states
   const handlePerson = event => {
@@ -30,6 +32,7 @@ export const App = () => {
       setBill(billInput);
     }
   };
+
   const handleTip = tipValue => setTip(tipValue);
   const handleCustomTip = event => {
     const customTipInput = event.target.value;
@@ -53,10 +56,9 @@ export const App = () => {
     return tip;
   };
 
-  const tipAmount = 0.0;
-  const totalBill = 0.0;
   const regexForZero = /0{1,}/;
   const matchForZero = regexForZero.test(person);
+
   // to compute tip per person
   const computationsForTip = () => {
     if (!matchForZero && bill && person) {
@@ -81,6 +83,14 @@ export const App = () => {
     return false;
   };
 
+  const onClickResetButton = () => {
+    setBill('');
+    setPerson('');
+    setCustomTip('');
+    setTipAmount(0);
+    setTotalBill(0);
+  };
+
   return (
     // main container of the UI
     <main className={classes.container}>
@@ -96,43 +106,43 @@ export const App = () => {
           onChangeValue={handleBill}
         />
 
-        <h3 className={classes.container__header}>Selected %</h3>
+        <h3 className={classes.container__header}>Selected Tip %</h3>
         {/* section for the tip buttons */}
         <section className={classes.container__buttons}>
           {/* tip value 5% */}
           <TipButton
-            value={5}
+            value="5"
             label="5%"
             show
-            onClickButton={() => handleTip(5)}
+            onClickButton={() => handleTip('5')}
           />
           {/* tip value 10% */}
           <TipButton
-            value={10}
+            value="10"
             label="10%"
             show
-            onClickButton={() => handleTip(10)}
+            onClickButton={() => handleTip('10')}
           />
           {/* tip value 15% */}
           <TipButton
-            value={15}
+            value="15"
             label="15%"
             show
-            onClickButton={() => handleTip(15)}
+            onClickButton={() => handleTip('15')}
           />
           {/* tip value 25% */}
           <TipButton
-            value={25}
+            value="25"
             label="25%"
             show
-            onClickButton={() => handleTip(25)}
+            onClickButton={() => handleTip('25')}
           />
           {/* tip value 50% */}
           <TipButton
-            value={50}
+            value="50"
             label="50%"
             show
-            onClickButton={() => handleTip(50)}
+            onClickButton={() => handleTip('50')}
           />
           {/* input field for custom tip */}
           <CustomTip value={customTip} show onChangeValue={handleCustomTip} />
@@ -141,7 +151,7 @@ export const App = () => {
         {/* input field for taking the person count */}
         <InputTextField
           value={person}
-          label="Number of person"
+          label="Number of people"
           icon={man}
           show
           errorMessage={errorMessage()}
@@ -157,6 +167,7 @@ export const App = () => {
           totalBill={computationsForBill().toFixed(2)}
           tipAmount={computationsForTip().toFixed(2)}
           disableResetBtn={disableResetBtn()}
+          onClickButton={() => onClickResetButton()}
         />
       </aside>
     </main>
