@@ -99,17 +99,18 @@
 // media query for mobile view
 @media (max-width: 420px) {
   .tip-display-container {
+   
     &__header,
-    &__header__unit {
+    &__unit {
       font-size: 0.75em;
     }
     &__display {
       display: flex;
-      padding: 40px 20px 40px 20px;
+      padding: 25px 20px 50px 20px;
       flex-direction: column;
     }
     &__row {
-      padding-bottom: 30px;
+      padding: 0px;
     }
     &__amt {
       font-size: 1.2em;

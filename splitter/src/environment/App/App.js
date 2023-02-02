@@ -55,25 +55,20 @@ export const App = () => {
 
   const tipAmount = 0.0;
   const totalBill = 0.0;
-
-  const billPerPerson = () => {
-    if (person !== '0') {
-      return bill / person;
-    }
-    return 0;
-  };
+  const regexForZero = /0{1,}/;
+  const matchForZero = regexForZero.test(person);
   // to compute tip per person
   const computationsForTip = () => {
-    if (bill !== 0 && person !== 0) {
-      return (finalTipValue() / 100) * billPerPerson();
+    if (!matchForZero && bill && person) {
+      return ((finalTipValue() / 100) * bill) / person;
     }
     return tipAmount;
   };
 
   // to compute bill amount per person
   const computationsForBill = () => {
-    if (bill !== 0 && person !== 0) {
-      return computationsForTip() + billPerPerson();
+    if (!matchForZero && bill && person) {
+      return computationsForTip() + bill / person;
     }
     return totalBill;
   };

@@ -5,6 +5,7 @@ import './styles.scss';
 // this component consists of various buttons for various tip percentages
 const TipButton = ({value, onClickButton, label, show}) => {
   if (!show) return null;
+  
 
   return (
     // main container for displaying buttons
