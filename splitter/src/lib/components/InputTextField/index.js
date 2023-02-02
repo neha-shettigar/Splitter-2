@@ -3,8 +3,15 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // this component takes user inputs in the form of numbers
-const InputTextField = ({value, onChangeValue, label, icon, errorMessage}) => {
-  const a = 10;
+const InputTextField = ({
+  value,
+  onChangeValue,
+  label,
+  icon,
+  errorMessage,
+  show,
+}) => {
+  if (!show) return null;
 
   return (
     // main container
@@ -40,6 +47,7 @@ InputTextField.propTypes = {
   label: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   errorMessage: PropTypes.string.isRequired,
+  show: PropTypes.bool.isRequired,
   onChangeValue: PropTypes.func,
 };
 

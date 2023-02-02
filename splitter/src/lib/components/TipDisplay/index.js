@@ -4,9 +4,8 @@ import './styles.scss';
 
 // this component displays the tip amount per person and also
 // total bill per person
-const TipDisplay = ({tipAmount, totalBill, disableResetBtn}) => {
-  // if (tipAmount) return null;
-  const a = 10;
+const TipDisplay = ({tipAmount, totalBill, disableResetBtn, show}) => {
+  if (!show) return null;
 
   return (
     // main container
@@ -21,7 +20,7 @@ const TipDisplay = ({tipAmount, totalBill, disableResetBtn}) => {
             <p className="tip-display-container__unit">/ person</p>
           </aside>
           <p className="tip-display-container__amt">
-            {isNaN(tipAmount) ? '$0.00' : tipAmount}
+            {isNaN(tipAmount) ? '$0.00' : `$${tipAmount}`}
           </p>
         </section>
 
@@ -33,7 +32,7 @@ const TipDisplay = ({tipAmount, totalBill, disableResetBtn}) => {
             <p className="tip-display-container__unit">/ person</p>
           </aside>
           <p className="tip-display-container__amt">
-            {isNaN(totalBill) ? '$0.00' : totalBill}
+            {isNaN(totalBill) ? '$0.00' : `$${totalBill}`}
           </p>
         </section>
       </article>
@@ -56,6 +55,7 @@ const TipDisplay = ({tipAmount, totalBill, disableResetBtn}) => {
 TipDisplay.propTypes = {
   tipAmount: PropTypes.number.isRequired,
   totalBill: PropTypes.number.isRequired,
+  show: PropTypes.bool.isRequired,
   disableResetBtn: PropTypes.bool.isRequired,
 };
 

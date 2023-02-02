@@ -25,7 +25,7 @@ export const App = () => {
 
   const handleBill = event => {
     const billInput = event.target.value;
-    const regexForBill = /^\d{1,6}$/;
+    const regexForBill = /^\d{0,6}(\.\d{1,2})?$/;
     if (billInput === '' || regexForBill.test(billInput)) {
       setBill(billInput);
     }
@@ -33,11 +33,11 @@ export const App = () => {
   const handleTip = tipValue => setTip(tipValue);
   const handleCustomTip = event => {
     const customTipInput = event.target.value;
-    const regexForBill = /^\d{1,2}$/;
+    const regexForBill = /^\d{0,2}(\.\d{1,2})?$/;
     if (customTipInput === '' || regexForBill.test(customTipInput)) {
       setCustomTip(customTipInput);
     }
-  }; 
+  };
 
   // check for error case and display error message
   const isPersonZero = person === '0';
@@ -85,7 +85,7 @@ export const App = () => {
     }
     return false;
   };
-  
+
   return (
     // main container of the UI
     <main className={classes.container}>
@@ -96,6 +96,7 @@ export const App = () => {
           value={bill}
           label="Bill"
           icon={dollar}
+          show
           errorMessage={errorMessageBill()}
           onChangeValue={handleBill}
         />
@@ -104,33 +105,42 @@ export const App = () => {
         {/* section for the tip buttons */}
         <section className={classes.container__buttons}>
           {/* tip value 5% */}
-          <TipButton value={5} onClickButton={() => handleTip(5)} label="5%" />
+          <TipButton
+            value={5}
+            label="5%"
+            show
+            onClickButton={() => handleTip(5)}
+          />
           {/* tip value 10% */}
           <TipButton
             value={10}
-            onClickButton={() => handleTip(10)}
             label="10%"
+            show
+            onClickButton={() => handleTip(10)}
           />
           {/* tip value 15% */}
           <TipButton
             value={15}
-            onClickButton={() => handleTip(15)}
             label="15%"
+            show
+            onClickButton={() => handleTip(15)}
           />
           {/* tip value 25% */}
           <TipButton
             value={25}
-            onClickButton={() => handleTip(25)}
             label="25%"
+            show
+            onClickButton={() => handleTip(25)}
           />
           {/* tip value 50% */}
           <TipButton
             value={50}
-            onClickButton={() => handleTip(50)}
             label="50%"
+            show
+            onClickButton={() => handleTip(50)}
           />
           {/* input field for custom tip */}
-          <CustomTip value={customTip} onChangeValue={handleCustomTip} />
+          <CustomTip value={customTip} show onChangeValue={handleCustomTip} />
         </section>
 
         {/* input field for taking the person count */}
@@ -138,6 +148,7 @@ export const App = () => {
           value={person}
           label="Number of person"
           icon={man}
+          show
           errorMessage={errorMessage()}
           onChangeValue={handlePerson}
         />
@@ -147,6 +158,7 @@ export const App = () => {
       <aside className={classes.container__display}>
         {/* display component */}
         <TipDisplay
+          show
           totalBill={computationsForBill().toFixed(2)}
           tipAmount={computationsForTip().toFixed(2)}
           disableResetBtn={disableResetBtn()}
