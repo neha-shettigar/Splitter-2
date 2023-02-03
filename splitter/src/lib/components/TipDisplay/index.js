@@ -46,7 +46,9 @@ const TipDisplay = ({
       {/* contains the reset button */}
       <article className="tip-display-container__reset">
         <button
-          className="tip-display-container__button"
+          className={`tip-display-container__button${
+            disableResetBtn ? '_disabled' : ''
+          }`}
           disabled={disableResetBtn}
           onClick={onClickButton}
           type="button">

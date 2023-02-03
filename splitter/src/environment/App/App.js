@@ -12,9 +12,10 @@ export const App = () => {
   const [person, setPerson] = React.useState('');
   const [bill, setBill] = React.useState('');
   const [tip, setTip] = React.useState('');
-  const [customTip, setCustomTip] = React.useState('');
+  // const [customTip, setCustomTip] = React.useState('');
   const [totalBill, setTotalBill] = React.useState(0);
   const [tipAmount, setTipAmount] = React.useState(0);
+  const [selectedButton, setSelectedButton] = React.useState('');
 
   // handle functions for the states
   const handlePerson = event => {
@@ -33,12 +34,15 @@ export const App = () => {
     }
   };
 
-  const handleTip = tipValue => setTip(tipValue);
+  const handleTip = (tipValue, button) => {
+    setTip(tipValue);
+    setSelectedButton(button);
+  };
   const handleCustomTip = event => {
     const customTipInput = event.target.value;
     const regexForBill = /^\d{0,2}(\.\d{1,2})?$/;
     if (customTipInput === '' || regexForBill.test(customTipInput)) {
-      setCustomTip(customTipInput);
+      setTip(customTipInput);
     }
   };
 
@@ -49,12 +53,12 @@ export const App = () => {
   const errorMessageBill = () => (isBillZero ? 'Cannot be zero' : null);
 
   // to choose the tip value between buttons and custom tip input
-  const finalTipValue = () => {
-    if (!tip) {
-      return customTip;
-    }
-    return tip;
-  };
+  // const finalTipValue = () => {
+  //   if (customTip === '0') {
+  //     return tip;
+  //   }
+  //   return customTip;
+  // };
 
   const regexForZero = /0{1,}/;
   const matchForZero = regexForZero.test(person);
@@ -62,7 +66,7 @@ export const App = () => {
   // to compute tip per person
   const computationsForTip = () => {
     if (!matchForZero && bill && person) {
-      return ((finalTipValue() / 100) * bill) / person;
+      return ((tip / 100) * bill) / person;
     }
     return tipAmount;
   };
@@ -77,7 +81,7 @@ export const App = () => {
 
   // to disable reset button when no inputs are given
   const disableResetBtn = () => {
-    if (!bill || !(tip || customTip) || !person) {
+    if (!bill || !tip || !person) {
       return true;
     }
     return false;
@@ -86,9 +90,10 @@ export const App = () => {
   const onClickResetButton = () => {
     setBill('');
     setPerson('');
-    setCustomTip('');
     setTipAmount(0);
     setTotalBill(0);
+    setTip('');
+    setSelectedButton('');
   };
 
   return (
@@ -113,39 +118,44 @@ export const App = () => {
           <TipButton
             value="5"
             label="5%"
+            selected={selectedButton === '5'}
             show
-            onClickButton={() => handleTip('5')}
+            onClickButton={() => handleTip('5', '5')}
           />
           {/* tip value 10% */}
           <TipButton
             value="10"
             label="10%"
+            selected={selectedButton === '10'}
             show
-            onClickButton={() => handleTip('10')}
+            onClickButton={() => handleTip('10', '10')}
           />
           {/* tip value 15% */}
           <TipButton
             value="15"
             label="15%"
+            selected={selectedButton === '15'}
             show
-            onClickButton={() => handleTip('15')}
+            onClickButton={() => handleTip('15', '15')}
           />
           {/* tip value 25% */}
           <TipButton
             value="25"
             label="25%"
+            selected={selectedButton === '25'}
             show
-            onClickButton={() => handleTip('25')}
+            onClickButton={() => handleTip('25', '25')}
           />
           {/* tip value 50% */}
           <TipButton
             value="50"
             label="50%"
+            selected={selectedButton === '50'}
             show
-            onClickButton={() => handleTip('50')}
+            onClickButton={() => handleTip('50', '50')}
           />
           {/* input field for custom tip */}
-          <CustomTip value={customTip} show onChangeValue={handleCustomTip} />
+          <CustomTip value={tip} show onChangeValue={handleCustomTip} />
         </section>
 
         {/* input field for taking the person count */}

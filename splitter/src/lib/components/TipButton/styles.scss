@@ -19,13 +19,26 @@
     border: none;
   }
 
-  &__button:active {
+  &__button_selected {
+    color: white;
+    width: 100%;
     background-color: #25c2ad;
+    border-radius: 5px;
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2em;
+    line-height: 47px;
+    letter-spacing: 0.1em;
+    border: none;
   }
 
-  &__button:focus {
-    background-color: #25c2ad;
-  }
+  // &__button:focus {
+  //   background-color: #25c2ad;
+  // }
+  // &__button::after{
+  //   background-color: #25c2ad;
+  // }
 }
 
 // media query for mobile view
