@@ -81,9 +81,9 @@
     width: 100%;
     padding: 20px 30px;
   }
-  &__button_disabled{
-     font-size: 1rem;
-   background: #0d686d;
+  &__button_disabled {
+    font-size: 1rem;
+    background: #0d686d;
     border-radius: 7px;
     border: none;
     align-items: center;
@@ -133,10 +133,16 @@
     // container for reset button
     &__reset {
       padding-bottom: 20px;
+      width: 90%;
     }
 
     &__button {
-      padding: 10px;
+      padding: 5px;
+      font-size: 1em;
+    }
+    &__button_disabled {
+      padding: 5px;
+      font-size: 1em;
     }
   }
 }
@@ -185,6 +191,12 @@
 
     // reset button
     &__button {
+      font-size: 1rem;
+      width: 100%;
+      padding: 10px;
+    }
+
+     &__button_disabled {
       font-size: 1rem;
       width: 100%;
       padding: 10px;
