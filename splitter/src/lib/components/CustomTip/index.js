@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // this component takes custom tip as user input via input field
-const CustomTip = ({value, show, onChangeValue}) => {
+const CustomTip = ({value, show, selected, onChangeValue}) => {
   if (!show) return null;
 
   return (
@@ -16,6 +16,7 @@ const CustomTip = ({value, show, onChangeValue}) => {
         value={value}
         placeholder="Custom"
         maxLength="2"
+        selected
         onChange={onChangeValue}
       />
     </section>
@@ -26,6 +27,7 @@ const CustomTip = ({value, show, onChangeValue}) => {
 CustomTip.propTypes = {
   value: PropTypes.number.isRequired,
   show: PropTypes.bool.isRequired,
+  selected: PropTypes.bool.isRequired,
   onChangeValue: PropTypes.func.isRequired,
 };
 
