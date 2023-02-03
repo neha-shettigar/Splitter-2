@@ -36,8 +36,10 @@ input::-webkit-inner-spin-button {
 
     // input field for taking custom tip from user
     &__input {
-      font-size: 1em;
-      width: 100%;
+      font-size: 1.5em;
+    width: 100%;
+    line-height: 2em;
+    color: #5D6B6C;
       
     }
   }
@@ -48,12 +50,12 @@ input::-webkit-inner-spin-button {
   // main container
   .custom-tip-container {
     display: flex;
-    width: 30%;
+    width: 48%;
     height: 45%;
 
     // input field for taking custom tip from user
     &__input {
-      font-size: 1em;
+      font-size: 2em;
       width: 100%;
     }
   }

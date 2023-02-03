@@ -110,37 +110,34 @@ input::-webkit-inner-spin-button {
   //main input container
   .input-container {
     display: flex;
-    height: 20%;
     // label for the input field
     &__label {
-      font-size: 1em;
-    }
-
-    // to display error message
-    &__span {
-      font-size: 0.8em;
-      color: red;
-      padding: 0;
+      font-size: 1.5em;
+      padding-bottom: 1em;
     }
 
     &__form {
       width: 100%;
-      display: flex;
-      align-items: center;
-      height: 45%;
+      padding-bottom: 2em;
     }
 
     //  input feild
     &__input {
       width: 100%;
-      font-size: 1.5em;
+      font-size: 2em;
+      padding: 0.5em 1em;
+      /* padding-right: 16px; */
+      color: #00474b;
     }
 
     // input field icon
     &__image {
-      max-width: 5%;
+      width: 6%;
+    
+      margin-left: 16px;
+    }
+    &__span {
       padding: 0;
-      margin-left: 10px;
     }
   }
 }
