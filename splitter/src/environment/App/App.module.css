@@ -62,7 +62,7 @@
   /* main container that contains all the components*/
   .container {
     display: flex;
-    padding: 30px;
+    padding: 2em;
     width: 100%;
     flex-direction: column;
   }
@@ -77,17 +77,19 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    padding-bottom: 2em;
   }
 
   /* container that displays tip amount and total bill per person */
   .container__display {
-    padding-top: 30px;
     width: 100%;
   }
 
   /* header for the tip buttons */
   .container__header {
     font-size: 0.8em;
+    line-height: 1.5em;
+    letter-spacing: 0.1em;
   }
 }
 

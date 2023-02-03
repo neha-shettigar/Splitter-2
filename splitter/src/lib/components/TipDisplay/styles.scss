@@ -118,6 +118,7 @@
     &__header,
     &__unit {
       font-size: 0.75em;
+      line-height: 1.5em;
     }
     &__display {
       display: flex;
@@ -132,7 +133,7 @@
     }
     // container for reset button
     &__reset {
-      padding-bottom: 20px;
+      padding-bottom: 1em;
       width: 90%;
     }
 
@@ -196,7 +197,7 @@
       padding: 10px;
     }
 
-     &__button_disabled {
+    &__button_disabled {
       font-size: 1rem;
       width: 100%;
       padding: 10px;

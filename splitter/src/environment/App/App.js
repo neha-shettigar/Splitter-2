@@ -38,19 +38,24 @@ export const App = () => {
     setTip(tipValue);
     setSelectedButton(button);
   };
-  const handleCustomTip = event => {
+
+  const handleCustomTip = (event, value) => {
     const customTipInput = event.target.value;
     const regexForBill = /^\d{0,2}(\.\d{1,2})?$/;
     if (customTipInput === '' || regexForBill.test(customTipInput)) {
       setTip(customTipInput);
     }
+    setSelectedButton(value);
   };
 
   // check for error case and display error message
-  const isPersonZero = person === '0';
-  const errorMessage = () => (isPersonZero ? 'Cannot be zero' : null);
-  const isBillZero = bill === '0';
-  const errorMessageBill = () => (isBillZero ? 'Cannot be zero' : null);
+  const regexForZero = /^0{1,}$/;
+  const matchBillForZero = regexForZero.test(bill);
+  const matchPersonForZero = regexForZero.test(person);
+
+  const errorMessage = () => (matchPersonForZero ? 'Cannot be zero' : null);
+
+  const errorMessageBill = () => (matchBillForZero ? 'Cannot be zero' : null);
 
   // to choose the tip value between buttons and custom tip input
   // const finalTipValue = () => {
@@ -60,12 +65,9 @@ export const App = () => {
   //   return customTip;
   // };
 
-  const regexForZero = /0{1,}/;
-  const matchForZero = regexForZero.test(person);
-
   // to compute tip per person
   const computationsForTip = () => {
-    if (!matchForZero && bill && person) {
+    if (!matchPersonForZero && bill && person) {
       return ((tip / 100) * bill) / person;
     }
     return tipAmount;
@@ -73,7 +75,7 @@ export const App = () => {
 
   // to compute bill amount per person
   const computationsForBill = () => {
-    if (!matchForZero && bill && person) {
+    if (!matchPersonForZero && bill && person) {
       return computationsForTip() + bill / person;
     }
     return totalBill;
@@ -111,7 +113,7 @@ export const App = () => {
           onChangeValue={handleBill}
         />
 
-        <h3 className={classes.container__header}>Selected Tip %</h3>
+        <h3 className={classes.container__header}>Select Tip %</h3>
         {/* section for the tip buttons */}
         <section className={classes.container__buttons}>
           {/* tip value 5% */}
@@ -155,13 +157,18 @@ export const App = () => {
             onClickButton={() => handleTip('50', '50')}
           />
           {/* input field for custom tip */}
-          <CustomTip value={tip} show onChangeValue={handleCustomTip} />
+          <CustomTip
+            value={tip}
+            selected={selectedButton === tip}
+            show
+            onChangeValue={handleCustomTip}
+          />
         </section>
 
         {/* input field for taking the person count */}
         <InputTextField
           value={person}
-          label="Number of people"
+          label="Number of People"
           icon={man}
           show
           errorMessage={errorMessage()}
