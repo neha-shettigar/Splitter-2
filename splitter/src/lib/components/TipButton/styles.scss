@@ -27,7 +27,7 @@
     font-family: 'Space Mono';
     font-style: normal;
     font-weight: 700;
-    font-size: 1.5em;
+    font-size: 2em;
     line-height: 47px;
     letter-spacing: 0.1em;
     border: none;
@@ -56,8 +56,15 @@
       width: 100%;
       justify-content: space-around;
     }
+    &__button_selected {
+       display: flex;
+      font-size: 1.5em;
+      width: 100%;
+      justify-content: space-around;
+    }
+    }
   }
-}
+
 
 @media (min-width: 420px) and (max-width: 768px) {
   // main container for the buttons
@@ -69,6 +76,14 @@
     // singular button container
     &__button {
       width: 100%;
+      font-size: 1.2em;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    &__button_selected{
+       width: 100%;
       font-size: 1.2em;
       padding: 0;
       display: flex;
