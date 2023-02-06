@@ -11,11 +11,10 @@ const CustomTip = ({value, show, selected, onChangeValue}) => {
     <section className="custom-tip-container">
       {/* input field for taking the custom tip from user */}
       <input
-        type="number"
+        type="text"
         className="custom-tip-container__input"
         value={value}
         placeholder="Custom"
-        maxLength="2"
         selected
         onChange={onChangeValue}
       />

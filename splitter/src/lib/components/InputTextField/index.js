@@ -28,7 +28,7 @@ const InputTextField = ({
       <form className="input-container__form">
         {/* input field for user inputs */}
         <input
-          type="number"
+          type="text"
           value={value}
           className="input-container__input"
           placeholder="0"
