@@ -28,20 +28,20 @@ export const App = () => {
 
   const handleBill = event => {
     const billInput = event.target.value;
-    const regexForBill = /^\d{0,6}(.\d{0,2})?$/;
+    const regexForBill = /^\d{1,6}(\.\d{0,2})?$/;
     if (billInput === '' || regexForBill.test(billInput)) {
       setBill(billInput);
     }
   };
 
   const handleTip = (tipValue, button) => {
-    setTip(tipValue);
     setSelectedButton(button);
+    setTip(tipValue);
   };
 
   const handleCustomTip = (event, value) => {
-    const customTipInput = event.target.value;  
-    const regexForTip = /^\d{0,2}(.\d{0,2})$/;
+    const customTipInput = event.target.value;
+    const regexForTip = /^\d{1,2}(\.\d{0,2})?$/;
     if (customTipInput === '' || regexForTip.test(customTipInput)) {
       setTip(customTipInput);
     }
@@ -190,4 +190,5 @@ export const App = () => {
       </aside>
     </main>
   );
+
 };
