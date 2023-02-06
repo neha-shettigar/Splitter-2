@@ -58,7 +58,7 @@
     padding: 10px;
     position: absolute;
     /* width: 5%; */
-    margin-left: 10px;
+    // margin-left: 10px;
     z-index: 1;
   }
 }
@@ -95,7 +95,7 @@ input::-webkit-inner-spin-button {
 
     // input field icon
     &__image {
-      max-width: 5%;
+      // max-width: 5%;
       padding: 0;
       margin-left: 16px;
     }
@@ -132,8 +132,6 @@ input::-webkit-inner-spin-button {
 
     // input field icon
     &__image {
-      width: 6%;
-    
       margin-left: 16px;
     }
     &__span {
